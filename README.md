@@ -1,1 +1,18 @@
 # docker-openstackclient
+
+OpenStack client
+
+## How to use
+
+```shell
+source openrc.sh
+docker run -it --rm -v $PWD:/src -e OS_AUTH_URL=$OS_AUTH_URL -e OS_PROJECT_DOMAIN_ID=$OS_PROJECT_DOMAIN_ID -e OS_REGION_NAME=$OS_REGION_NAME -e OS_PROJECT_NAME=$OS_PROJECT_NAME -e OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_IDENTITY_API_VERSION=$OS_IDENTITY_API_VERSION -e OS_INTERFACE=$OS_INTERFACE -e OS_PASSWORD=$OS_PASSWORD -e OS_USERNAME=$OS_USERNAME -e OS_PROJECT_ID=$OS_PROJECT_ID kyokuheki/openstack-client:latest openstack ...
+```
+
+### Alias
+
+```shell
+source openrc.sh
+alias openstack='docker run -it --rm -v $PWD:/src -e OS_AUTH_URL=$OS_AUTH_URL -e OS_PROJECT_DOMAIN_ID=$OS_PROJECT_DOMAIN_ID -e OS_REGION_NAME=$OS_REGION_NAME -e OS_PROJECT_NAME=$OS_PROJECT_NAME -e OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME -e OS_IDENTITY_API_VERSION=$OS_IDENTITY_API_VERSION -e OS_INTERFACE=$OS_INTERFACE -e OS_PASSWORD=$OS_PASSWORD -e OS_USERNAME=$OS_USERNAME -e OS_PROJECT_ID=$OS_PROJECT_ID -v kyokuheki/openstack-client:latest openstack'
+openstack server list
+```
